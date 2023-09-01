@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+  <script src="bootstrap-4.0.0-dist/js/color-modes.js"></script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <title>Sign up</title>
+
+
+  <link href="bootstrap-4.0.0-dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles -->
+  <link href="sign-up.css" rel="stylesheet">
+</head>
+
+
+<body class=" bodyclass d-flex align-items-center py-4 bg-body-tertiary">
+
+  <main class="form-signup w-100 m-auto">
+    <form class="needs-validation" novalidate>
+      <h1 class="h3 mb-3 fw-semibold">Sign up</h1>
+
+      <div class="form-floating">
+        <input type="text" class="form-control" id="fname" placeholder="First Name" required>
+        <label for="floatingInput">First Name</label>
+        <input type="hidden" class="form-control" id="userID">
+        <div class="invalid-feedback">
+          Please enter your first name.
+        </div>
+      </div>
+      <div class="form-floating">
+        <input type="text" class="form-control" id="lname" placeholder="Last Name" required>
+        <label for="floatingInput">Last Name</label>
+        <div class="invalid-feedback">
+          Please enter your last name.
+        </div>
+      </div>
+      <div class="form-floating">
+        <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+        <label for="floatingInput">Email address</label>
+        <div class="invalid-feedback">
+          Please enter a valid email.
+        </div>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="password" placeholder="Password" required>
+        <label for="floatingPassword">Password</label>
+        <div class="invalid-feedback">
+          Please enter a password.
+        </div>
+      </div>
+      <button id='submit' class="btn btn-primary w-100 py-2" type="button">Submit</button>
+      <div>
+        <h3 class="text-center">Already have an account? <a href="login.html" class="log-in-link">Log in</a></h3>
+      </div>
+      <!-- <script type="text/javascript">
+        document.getElementById('submit').onclick = function(){
+            location.href = "dashboard.html";
+        };
+    </script> -->
+    </form>
+  </main>
+  <script src="bootstrap-4.0.0-dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    (function () {
+      'use strict'
+      var forms = document.querySelectorAll('.needs-validation')
+      var formbtn = document.getElementById("submit");
+
+
+      // Loop over them and prevent submission, submit if all inputs are validated. 
+      Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+          formbtn.addEventListener('click', function (event) {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+            form.classList.add('was-validated')
+            if (form.checkValidity()) {
+              document.getElementById('submit').onclick = submitUser();
+            }
+          }, false)
+        })
+    })()
+
+    function submitUser() {
+
+      first_name = document.getElementById("fname").value;
+      last_name = document.getElementById("lname").value;
+      email = document.getElementById("email").value;
+      password = document.getElementById("password").value;
+
+      const data = {
+        first_name: first_name,
+        last_name: last_name,
+        email: email,
+        password: password
+      };
+
+      fetch('http://localhost:3000/api/newuser', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+        .then(response => response.json())
+        .then(result => { 
+          window.location.href = "dashboard.html";
+        })
+        .catch(error => {
+          alert("Sign up unsuccessful. Try again.");
+          console.error('Error:', error);
+          // Handle any errors that occurred during the request
+        });
+
+    }
+
+  </script>
+</body>
+
+</html>

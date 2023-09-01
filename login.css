@@ -1,0 +1,43 @@
+html,
+body {
+  height: 100%;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 1rem;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: 5px;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+}
+
+.page-link{
+  color: rgb(98, 139, 251);
+  text-align: right;
+  margin-top: 0px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+.text-center {
+  font-size: 16px;
+  font-weight: normal;
+  margin-top: 10px;
+}
+
+.sign-up-link {
+  color: rgb(98, 139, 251);
+  text-decoration: none;
+}
+
+.h3 {
+  text-align: center;
+}

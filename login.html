@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+  <script src="bootstrap-4.0.0-dist/js/color-modes.js"></script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <title>Log in</title>
+
+
+  <link href="bootstrap-4.0.0-dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles -->
+  <link href="login.css" rel="stylesheet">
+</head>
+
+
+<body class=" bodyclass d-flex align-items-center py-4 bg-body-tertiary">
+
+  <main class="form-signin w-100 m-auto">
+    <form>
+      <h1 class="h3 mb-3 fw-semibold">Log in</h1>
+
+      <div class="form-floating">
+        <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+        <label for="floatingInput">Email address</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="password" placeholder="Password" required>
+        <label for="floatingPassword">Password</label>
+      </div>
+      <!--a href="forgotpw_1.html" class="page-link">Forgot Password?</a-->
+      <button class="btn btn-primary w-100 py-2" type="button" onclick="submitLogin()">Submit</button>
+      <div>
+        <h3 class="text-center">Don't have an account? <a href="signup.html" class="sign-up-link">Sign up</a></h3>
+
+      </div>
+    </form>
+  </main>
+  <script src="bootstrap-4.0.0-dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function submitLogin() {
+
+      email = document.getElementById("email").value;
+      password = document.getElementById("password").value;
+
+      const data = {
+        email: email,
+        password: password
+      };
+
+      fetch('http://localhost:3000/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+        .then(response => response.json())
+        .then(result => {
+     
+          if(result["token"]===0){
+            alert("Login credentials are wrong. Try again.");
+          }
+          else{
+            //alert("Login Successful");
+           console.log(result);
+           window.location.href="dashboard.html";
+          }
+          // Handle the response from the server as needed
+        })
+        .catch(error => {
+          alert("Login was unsuccessful. Try again.");
+          console.log(error);
+          //console.error('Error:', error);
+          // Handle any errors that occurred during the request
+        });
+    }
+  
+  </script>
+
+</body>
+
+</html>

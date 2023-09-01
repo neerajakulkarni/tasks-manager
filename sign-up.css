@@ -1,0 +1,48 @@
+html,
+body {
+  height: 100%;
+}
+
+.form-signup {
+  max-width: 330px;
+  padding: 1rem;
+}
+
+.form-signup .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signup input[type="text"] {
+  margin-bottom: 5px;
+}
+
+
+.form-signup input[type="email"] {
+  margin-bottom: 5px;
+}
+
+.form-signup input[type="password"] {
+  margin-bottom: 10px;
+}
+
+.page-link {
+  color: rgb(98, 139, 251);
+  text-align: right;
+  margin-top: 0px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.text-center {
+  font-size: 16px;
+  font-weight: normal;
+  margin-top: 10px;
+}
+
+.h3 {
+  text-align: center;
+}
+
+.log-in-link {
+  text-decoration: none;
+}

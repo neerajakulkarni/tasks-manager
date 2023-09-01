@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+  <head><script src="bootstrap-4.0.0-dist/js/color-modes.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Forgot Password</title>
+    
+
+    <link href="bootstrap-4.0.0-dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles -->
+    <link href="sign-up.css" rel="stylesheet">
+  </head>
+
+
+<body class=" bodyclass d-flex align-items-center py-4 bg-body-tertiary">
+    
+<main class="form-signup w-100 m-auto">
+  <form>
+    <h1 class="h3 mb-3 fw-semibold">Forgot Password</h1>
+    <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+        <label for="floatingPassword">New Password</label>
+      </div>  
+    <div class="form-floating">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+      <label for="floatingPassword">Confirm New Password</label>
+    </div>
+    <button id="submit" class="btn btn-primary w-100 py-2" type="submit">Submit</button>
+    <script type="text/javascript">
+        document.getElementById("submit").onclick = function(){
+            location.href = "dashboard.html";
+        };
+    </script>
+  </form>
+</main>
+<script src="bootstrap-4.0.0-dist/js/bootstrap.bundle.min.js"></script>
+
+    </body>
+</html>
